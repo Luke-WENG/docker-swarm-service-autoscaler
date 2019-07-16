@@ -45,4 +45,3 @@ class Autoscaler(object):
             if metric_value < scale_down_threshold and (current_replica_count - scale_step) >= scale_min:
                 logger.info("Scaling down {} from {} to {} as metric value is {}".format(service_name, current_replica_count, current_replica_count - scale_step, metric_value))
                 self.docker_client.scale_service(service_name=service_name, replica_count=current_replica_count - scale_step)
-
